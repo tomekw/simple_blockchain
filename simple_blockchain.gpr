@@ -1,0 +1,14 @@
+project Simple_Blockchain is
+   for Source_Dirs use ("src");
+   for Object_Dir use "object";
+   for Exec_Dir use "target";
+   for Main use ("simple_blockchain_demo.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use ("-O2");
+   end Compiler;
+
+   package Builder is
+      for Executable ("simple_blockchain_demo.adb") use "simple_blockchain";
+   end Builder;
+end Simple_Blockchain;
