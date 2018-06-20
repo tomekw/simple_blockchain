@@ -1,14 +1,23 @@
 project Simple_Blockchain is
+
    for Source_Dirs use ("src");
    for Object_Dir use "object";
    for Exec_Dir use "target";
    for Main use ("simple_blockchain_demo.adb");
 
    package Compiler is
-      for Default_Switches ("Ada") use ("-O2");
+      for Default_Switches ("ada") use ("-O2", "-gnatA", "-gnatW8", "-gnat12");
    end Compiler;
 
    package Builder is
       for Executable ("simple_blockchain_demo.adb") use "simple_blockchain";
    end Builder;
+
+   for Runtime ("ada") use "default";
+
+   package Binder is
+      for Switches ("ada") use ("-shared");
+   end Binder;
+
 end Simple_Blockchain;
+
