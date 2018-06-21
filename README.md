@@ -1,5 +1,7 @@
 # Simple blockchain in Ada
 
+Code for [Simple blockchain in Ada](https://tomekw.com/simple-blockchain-in-ada/) blog post.
+
 ## Building
 
 ``` bash
