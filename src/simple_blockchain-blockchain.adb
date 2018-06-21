@@ -26,19 +26,19 @@ package body Simple_Blockchain.Blockchain is
       for I in Get_Blocks (This).First_Index .. (Get_Blocks (This).Last_Index - 1) loop
          Current_Block := Block_Vectors.Element (Get_Blocks (This), I);
          Next_Block := Block_Vectors.Element (Get_Blocks (This), I + 1);
+
+         if Block.Get_Hash (Next_Block) /= Block.Calculate_Hash (Block.Get_Previous_Hash (Next_Block), Block.Get_Timestamp (Next_Block), Block.Get_Nonce (Next_Block), Block.Get_Data (Next_Block)) then
+            return False;
+         end if;
+
+         if Block.Get_Hash (Current_Block) /= Block.Get_Previous_Hash (Next_Block) then
+            return False;
+         end if;
+
+         if Block.Get_Hash (Next_Block) (1.. Get_Difficulty (This)) /= Expected_Hash_Prefix (This) then
+            return False;
+         end if;
       end loop;
-
-      if Block.Get_Hash (Next_Block) /= Block.Calculate_Hash (Block.Get_Previous_Hash (Next_Block), Block.Get_Timestamp (Next_Block), Block.Get_Nonce (Next_Block), Block.Get_Data (Next_Block)) then
-         return False;
-      end if;
-
-      if Block.Get_Hash (Current_Block) /= Block.Get_Previous_Hash (Next_Block) then
-         return False;
-      end if;
-
-      if Block.Get_Hash (Next_Block) (1.. Get_Difficulty (This)) /= Expected_Hash_Prefix (This) then
-         return False;
-      end if;
 
       return True;
    end Is_Valid;
