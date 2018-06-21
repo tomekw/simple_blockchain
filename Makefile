@@ -1,8 +1,7 @@
 all: build run
 
 build:
-	mkdir target
-	mkdir object
+	mkdir -p target object
 	gnatmake -Psimple_blockchain
 
 run:
