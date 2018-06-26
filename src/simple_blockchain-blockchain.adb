@@ -4,7 +4,7 @@ with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 package body Simple_Blockchain.Blockchain is
    function Get_Blocks (This : Object) return Block_Vectors.Vector is (This.Blocks);
 
-   function Get_Difficulty (This : Object) return Natural is (This.Difficulty);
+   function Get_Difficulty (This : Object) return Natural is (Natural (This.Difficulty));
 
    function Image (This : Object) return String is
       Result : Unbounded_String;
@@ -43,7 +43,7 @@ package body Simple_Blockchain.Blockchain is
       return True;
    end Is_Valid;
 
-   function Make (Difficulty : Natural) return Object is
+   function Make (Difficulty : Blockchain_Difficulty) return Object is
    begin
       return (
               Blocks => Block_Vectors.Empty_Vector,

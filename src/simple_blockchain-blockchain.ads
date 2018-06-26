@@ -9,20 +9,22 @@ package Simple_Blockchain.Blockchain is
 
    package Block_Vectors is new Vectors (Index_Type => Positive, Element_Type => Block.Object);
 
+   type Blockchain_Difficulty is range 1 .. 64;
+
    type Object is private;
 
    function Get_Blocks (This : Object) return Block_Vectors.Vector;
    function Get_Difficulty (This : Object) return Natural;
    function Image (This : Object) return String;
    function Is_Valid (This : Object) return Boolean;
-   function Make (Difficulty : Natural) return Object;
+   function Make (Difficulty : Blockchain_Difficulty) return Object;
    procedure Mine_Block (This : in out Object; Data : String);
 private
 
    type Object is
       record
          Blocks : Block_Vectors.Vector;
-         Difficulty : Natural;
+         Difficulty : Blockchain_Difficulty;
       end record;
 
    function Expected_Hash_Prefix (This : Object) return String;
