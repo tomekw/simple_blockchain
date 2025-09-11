@@ -13,7 +13,7 @@ package Simple_Blockchain.Block is
    function Make (Previous_Hash : String; Data : String) return Object;
    procedure Recalculate_Hash (This : in out Object);
 
-   function Calculate_Hash (Previous_Hash : String; Timestamp : Time; Nonce : Long_Long_Integer; Data: String) return String;
+   function Calculate_Hash (Previous_Hash : String; Timestamp : Time; Nonce : Long_Long_Integer; Data : String) return String;
 
 private
 

@@ -23,8 +23,8 @@ package body Simple_Blockchain.Block is
    end Image;
 
    function Make (Previous_Hash : String; Data : String) return Object is
-      Now : Time := Clock;
-      Nonce : Long_Long_Integer := 0;
+      Now : constant Time := Clock;
+      Nonce : constant Long_Long_Integer := 0;
    begin
       return (
               Hash => Calculate_Hash (Previous_Hash, Now, Nonce, Data),
@@ -41,7 +41,7 @@ package body Simple_Blockchain.Block is
       This.Hash := Calculate_Hash (Get_Previous_Hash (This), Get_Timestamp (This), Get_Nonce (This), Get_Data (This));
    end Recalculate_Hash;
 
-   function Calculate_Hash (Previous_Hash : String; Timestamp : Time; Nonce : Long_Long_Integer; Data: String) return String is
+   function Calculate_Hash (Previous_Hash : String; Timestamp : Time; Nonce : Long_Long_Integer; Data : String) return String is
    begin
       return GNAT.SHA256.Digest (Previous_Hash & Image (Timestamp) & Nonce'Image & Data);
    end Calculate_Hash;

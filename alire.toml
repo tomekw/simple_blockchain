@@ -1,0 +1,12 @@
+name = "simple_blockchain_demo"
+description = "Simple Blockchain Demo"
+version = "0.1.0-dev"
+
+authors = ["Tomek Wałkuski"]
+maintainers = ["Tomek Wałkuski <ada@tomekw.com>"]
+maintainers-logins = ["tomekw"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = "https://github.com/tomekw/simple_blockchain"
+tags = ["blockchain", "demo"]
+
+executables = ["simple_blockchain_demo"]

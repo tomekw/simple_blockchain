@@ -8,7 +8,7 @@ package body Simple_Blockchain.Blockchain is
 
    function Image (This : Object) return String is
       Result : Unbounded_String;
-      EOL : String(1 .. 2) := (1 => Ada.Characters.Latin_1.CR, 2 => Ada.Characters.Latin_1.LF);
+      EOL : constant String (1 .. 2) := (1 => Ada.Characters.Latin_1.CR, 2 => Ada.Characters.Latin_1.LF);
    begin
       Append (Result, "Blockchain - difficulty: " & Get_Difficulty (This)'Image & ", blocks: " & Block_Vectors.Length (Get_Blocks (This))'Image & EOL);
 
@@ -35,7 +35,7 @@ package body Simple_Blockchain.Blockchain is
             return False;
          end if;
 
-         if Block.Get_Hash (Next_Block) (1.. Get_Difficulty (This)) /= Expected_Hash_Prefix (This) then
+         if Block.Get_Hash (Next_Block) (1 .. Get_Difficulty (This)) /= Expected_Hash_Prefix (This) then
             return False;
          end if;
       end loop;

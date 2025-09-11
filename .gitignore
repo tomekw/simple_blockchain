@@ -1,2 +1,4 @@
-object/
-target/
+/obj/
+/bin/
+/alire/
+/config/

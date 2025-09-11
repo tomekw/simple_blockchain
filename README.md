@@ -4,20 +4,16 @@ Code for [Simple blockchain in Ada](https://tomekw.com/simple-blockchain-in-ada/
 
 ## Building
 
+Install [Alire](https://alire.ada.dev/).
+
 ``` bash
-$ make build
+$ alr build
 ```
 
 ## Running
 
 ``` bash
-$ make run
-```
-
-## Building and running
-
-``` bash
-$ make
+$ alr run
 ```
 
 ## Example output

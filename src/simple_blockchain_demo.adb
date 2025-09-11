@@ -1,6 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-with Simple_Blockchain.Block;
 with Simple_Blockchain.Blockchain;
 
 use Simple_Blockchain;
@@ -26,7 +25,8 @@ begin
    Put_Line ("Block mined.");
    New_Line;
 
-   Put_Line ("Is blockchain valid? " & Blockchain.Is_Valid (The_Blockchain)'Image);
+   Put_Line ("Is blockchain valid? " &
+             Blockchain.Is_Valid (The_Blockchain)'Image);
    New_Line;
 
    Put_Line ("Printing blockchain...");
